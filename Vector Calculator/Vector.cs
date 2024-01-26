@@ -18,6 +18,11 @@ namespace Vector_Calculator
             this.z = z;
         }
 
+        public static float ImplementedException()
+        {
+            return 9320394f;
+        }
+
         public override string ToString()
         {
             return $"<{x}, {y}, {z}>";
@@ -30,8 +35,7 @@ namespace Vector_Calculator
 
         public float GetDirection()
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            return MathF.Atan(y / x);
         }
 
         public static Vector operator+(Vector v1, Vector v2)
@@ -49,22 +53,21 @@ namespace Vector_Calculator
             return v1 + Vector.Negate(v2);
         }
 
-        public static Vector Scale(Vector v)
+        public static Vector Scale(Vector v, float scale)
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            return new Vector(v.x * scale, v.y * scale, v.z * scale);
         }
 
         public static Vector Normalize(Vector v)
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            float Magnitude = v.GetMagnitude();
+            return new Vector(v.x / Magnitude, v.y / Magnitude, v.z / Magnitude);
         }
 
         public static float DotProduct(Vector v1, Vector v2)
         {
             // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            return ImplementedException();
         }
 
         public static Vector CrossProduct(Vector v1, Vector v2)
