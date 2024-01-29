@@ -18,10 +18,7 @@ namespace Vector_Calculator
             this.z = z;
         }
 
-        public static float ImplementedException()
-        {
-            return 9320394f;
-        }
+        // Non-Static Functions
 
         public override string ToString()
         {
@@ -38,14 +35,11 @@ namespace Vector_Calculator
             return MathF.Atan(y / x);
         }
 
+        // Operators
+
         public static Vector operator+(Vector v1, Vector v2)
         {
             return new Vector(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z);
-        }
-
-        public static Vector Negate(Vector v)
-        {
-            return new Vector(-v.x, -v.y, -v.z);
         }
 
         public static Vector operator-(Vector v1, Vector v2)
@@ -53,9 +47,38 @@ namespace Vector_Calculator
             return v1 + Vector.Negate(v2);
         }
 
-        public static Vector Scale(Vector v, float scale)
+        public static bool operator==(Vector v1, Vector v2)
+        {
+            return (v1.x == v2.x) && (v1.y == v2.y) && (v1.z == v2.z);
+        }
+        public static bool operator!=(Vector v1, Vector v2)
+        {
+            return !(v1 == v2);
+        }
+
+        public static Vector operator*(Vector v, float scale)
         {
             return new Vector(v.x * scale, v.y * scale, v.z * scale);
+        }
+        public static Vector operator*(Vector v1, Vector v2)
+        {
+            return new Vector(v1.x * v2.x, v1.y * v2.y, v1.z * v2.z);
+        }
+
+        public static Vector operator/(Vector v, float scale)
+        {
+            return new Vector(v.x / scale, v.y / scale, v.z / scale);
+        }
+        public static Vector operator/(Vector v1, Vector v2)
+        {
+            return new Vector(v1.x / v2.x, v1.y / v2.y, v1.z / v2.z);
+        }
+
+        // Static Functions
+
+        public static Vector Negate(Vector v)
+        {
+            return new Vector(-v.x, -v.y, -v.z);
         }
 
         public static Vector Normalize(Vector v)
@@ -66,8 +89,7 @@ namespace Vector_Calculator
 
         public static float DotProduct(Vector v1, Vector v2)
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            return ImplementedException();
+            return (v1.x * v2.x) + (v1.y * v2.y) + (v1.z * v2.z);
         }
 
         public static Vector CrossProduct(Vector v1, Vector v2)
@@ -76,10 +98,9 @@ namespace Vector_Calculator
             throw new NotImplementedException();
         }
 
-        public static Vector AngleBetween(Vector v1, Vector v2)
+        public static float AngleBetween(Vector v1, Vector v2)
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            return MathF.Acos(Vector.DotProduct(v1, v2) / (v1.GetMagnitude() * v2.GetMagnitude()));
         }
 
         public static Vector ProjectOnto(Vector v1, Vector v2)
