@@ -95,10 +95,9 @@ namespace Vector_Calculator
             return MathF.Acos(Vector.DotProduct(v1, v2) / (v1.Magnitude * v2.Magnitude));
         }
 
-        public static Vector ProjectOnto(Vector v1, Vector v2)
+        public static Vector ProjectOnto(Vector v1, Vector v2) // may or may not be correct
         {
-            // ADD CODE HERE, THEN REMOVE BELOW LINE
-            throw new NotImplementedException();
+            return ((v1 * v2) / MathF.Pow(v2.Magnitude, 2)) * v2;
         }
     }
 }

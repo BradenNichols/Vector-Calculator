@@ -6,15 +6,24 @@ namespace Vector_Calculator
     {
         static void Main(string[] args)
         {
-            // Vectors
-            Vector V1 = new Vector(1, 2, 3);
-            Vector V2 = new Vector(-1, 4, -5);
+            // Input Vectors
 
-            // TODO: add inputting vectors, with comma separating inputs
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Please input a vector.");
 
+            string[] input1 = ((string)Console.ReadLine()).Split(",");
+
+            Console.WriteLine("Please input another vector.");
+
+            string[] input2 = ((string)Console.ReadLine()).Split(",");
+
+            Vector V1 = new Vector(Convert.ToSingle(input1[0]), Convert.ToSingle(input1[1]), Convert.ToSingle(input1[2]));
+            Vector V2 = new Vector(Convert.ToSingle(input2[0]), Convert.ToSingle(input2[1]), Convert.ToSingle(input2[2]));
+            
             // Tests
+
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("V1: " + V1);
+            Console.WriteLine("\nV1: " + V1);
             Console.WriteLine("V2: " + V2);
 
             Console.ForegroundColor = ConsoleColor.Green;
