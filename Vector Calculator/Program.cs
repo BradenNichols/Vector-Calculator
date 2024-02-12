@@ -46,6 +46,7 @@ namespace Vector_Calculator
             Console.WriteLine("Cross Product: " + Vector.CrossProduct(V1, V2));
             Console.WriteLine("Angle Between (Rad): " + Vector.AngleBetween(V1, V2));
             Console.WriteLine("Angle Between (Deg): " + (Vector.AngleBetween(V1, V2) / MathF.PI) * 180);
+            Console.WriteLine("Project V1 onto V2: " + Vector.ProjectOnto(V1, V2));
 
             // Complete
             Console.ForegroundColor = ConsoleColor.White;

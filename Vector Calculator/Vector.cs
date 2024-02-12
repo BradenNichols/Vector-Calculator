@@ -97,7 +97,8 @@ namespace Vector_Calculator
 
         public static Vector ProjectOnto(Vector v1, Vector v2) // may or may not be correct
         {
-            return ((v1 * v2) / MathF.Pow(v2.Magnitude, 2)) * v2;
+            float dot = Vector.DotProduct(v1, v2);
+            return v2 * dot / MathF.Pow(v2.Magnitude, 2);
         }
     }
 }
